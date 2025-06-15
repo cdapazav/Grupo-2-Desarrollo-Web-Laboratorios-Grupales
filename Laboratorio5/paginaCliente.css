@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 30px;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    width: 100%;
+}
+
+#contenido {
+    border: 2px solid rgb(46, 164, 74);
+    width: 100%;
+    background: #e3f0fa;
+    min-height: 100vh;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+    overflow-x: auto;
+}
+
+.des {
+    font-size: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    /* color: black; */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tabla-habitaciones {
+    border-collapse: separate;
+    border-spacing: 0 24px; /* separa las filas visualmente */
+    width: 100%;
+}
+.tabla-habitaciones tbody tr {
+    border-radius: 16px;
+    background: white;
+    border: 1px solid red;
+    box-shadow: 0 2px 12px rgba(0,123,255,0.08);
+    overflow: hidden;
+    transition: box-shadow 0.2s, border 0.2s;
+   
+}
+.tabla-habitaciones tbody tr:hover {
+    box-shadow: 0 4px 24px rgba(25,118,210,0.18);
+    
+}
+.tabla-habitaciones th, .tabla-habitaciones td {
+
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    padding: 18px 8px;
+}
+.tabla-habitaciones th {
+    font-family: 'Helvetica';
+    font-weight: 700;
+    color: black;
+    
+    letter-spacing: 1px;
+    padding: 18px 8px;
+    border-bottom: 2px solid #b3d3f7;
+}
+.tabla-habitaciones td {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: #222;
+    background: #f8fbff;
+    letter-spacing: 0.5px;
+    padding: 16px 8px;
+    border-radius: 0 0 12px 12px;
+    border-top: 1px solid #e3f0fa;
+    transition: background 0.2s, color 0.2s;
+}
+.tabla-habitaciones tbody tr:hover td {
+    background: #e3f0fa;
+    color: #1976d2;
+}
+
+/* Elimina bordes y margenes antiguos */
+.tabla-habitaciones tr {
+    margin-bottom: 0;
+    border: none;
+    display: table-row;
+}
+
+.td-img img{
+    width: 350px;
+    height: 200px;
+    border-radius: 8px;
+}
+.btn-reservar{
+    background-color: #0ae244;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reservar.reservado {
+    background: linear-gradient(90deg, #b71c1c 60%, #e53935 100%);
+    color: #fff;
+    border: none;
+    cursor: not-allowed;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(183,28,28,0.12);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.navbar-superior {
+    width: 100%;
+    background: linear-gradient(90deg, #111 60%, #222 100%);
+    color: #fff;
+    display: flex;
+    font-style: arial, sans-serif;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 100px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background:black;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.nombre-pagina {
+    font-size: 80px;
+    letter-spacing: 1px;
+    font-family: fantasy;
+    font-style: arial, sans-serif;
+    color:white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    font-size: 40px;
+}
+
+.navbar-usuario {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.usuario-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: #eee;
+}
+.usuario-nombre {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.carrusel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    overflow: hidden; /* Asegura que la imagen no se desborde */
+}
+.carrusel-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 0 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background 0.2s;
+    outline: none;
+}
+
+
+
+.carrusel-btn.prev { left: 10px; }
+.carrusel-btn.next { right: 10px; }
+.carrusel-btn:hover { background: rgba(0,0,0,0.7); }
+
+#contenido .reserva-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(25,118,210,0.10);
+    border: 2px solid #1976d2;
+    margin-bottom: 28px;
+    padding: 28px 32px 18px 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    transition: box-shadow 0.2s, border 0.2s;
+    position: relative;
+}
+#contenido .reserva-card:hover {
+    box-shadow: 0 6px 32px rgba(25,118,210,0.18);
+    border-color: #1565c0;
+}
+#contenido .reserva-card .reserva-titulo {
+    color: #1976d2;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+#contenido .reserva-card .reserva-info {
+    font-size: 1.08rem;
+    color: #222;
+    margin-bottom: 6px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+#contenido .reserva-card .reserva-info span {
+    font-weight: 600;
+    color: #1976d2;
+    min-width: 120px;
+    display: inline-block;
+}
+#contenido .reserva-card .reserva-estado {
+    position: absolute;
+    top: 18px;
+    right: 32px;
+    background: #e3f0fa;
+    color: #1976d2;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    box-shadow: 0 1.5px 8px rgba(25,118,210,0.06);
+}
+#contenido .reserva-card .reserva-estado.confirmada {
+    background: #d0f5e8;
+    color: #1b8c4a;
+}
+#contenido .reserva-card .reserva-estado.cancelada {
+    background: #ffeaea;
+    color: #b71c1c;
+}
+#contenido .reserva-card .reserva-estado.pendiente {
+    background: #fff9e3;
+    color: #bfa100;
+}
+
+.habitaciones-lista {
+    display: flex;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.habitacion-card {
+    width: 38%;
+    min-width: 270px;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(25,118,210,0.13);
+    border: 2px solid #e3f0fa;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+
+.habitacion-card-img {
+    width: 100%;
+    background: #f8fbff;
+    border-radius: 0;
+}
+#btn-ver-reservas {
+    background: #111 !important;
+    color: #fff !important;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
